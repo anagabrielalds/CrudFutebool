@@ -1,0 +1,61 @@
+﻿
+@{ ViewData["Title"] = "Update Jogo"; }
+
+@model Jogo
+<h3 style="margin:40px; text-align:center">Update de Jogo</h3>
+<form asp-action="UpdateJogo" method="post">
+
+    <div class="panel panel-default" style="background-color: lightgreen; padding-top:40px; border: solid 2px black">
+        <div class="panel-body modal-dialog-scrollable" style="justify-content: center;">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="TimeCasa">Time da Casa</label>
+                    <input type="number" class="form-control" id="TimeCasa" placeholder="Id " asp-for="@Model.TimeCasa.Id">
+                    <span class="text-danger" asp-validation-for="@Model.TimeCasa.Id"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="TimeVisitante">Time Visitante</label>
+                    <input type="number" class="form-control" id="TimeVisitante" placeholder="Id" asp-for="@Model.TimeVisitante.Id">
+                    <span class="text-danger" asp-validation-for="@Model.TimeVisitante.Id"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="Campo">Campo do Jogo</label>
+                    <input type="number" class="form-control" id="Campo" placeholder="Id" asp-for="@Model.Campo.Id">
+                    <span class="text-danger" asp-validation-for="@Model.Campo.Id"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="DataHoraJogo">Data e Hora do Jogo</label>
+                    <input type="datetime" class="form-control" id="DataHoraJogo" placeholder="Data e Hora do Jogo" asp-for="@Model.DataHoraJogo">
+                    <span class="text-danger" asp-validation-for="@Model.DataHoraJogo"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="Acrescimo">Acrescímo</label>
+                    <input type="number" class="form-control" id="Acrescimo" placeholder="Acrescímo" asp-for="@Model.Acrescimo">
+                    <span class="text-danger" asp-validation-for="@Model.Acrescimo"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="PlacarCasa">Placar da Casa</label>
+                    <input type="number" class="form-control" id="PlacarCasa" placeholder="Placar da Casa" asp-for="@Model.PlacarCasa">
+                    <span class="text-danger" asp-validation-for="@Model.PlacarCasa"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="PlacarVisitante">Placar do Visitante</label>
+                    <input type="number" class="form-control" id="PlacarVisitante" placeholder="Placar do Visitante" asp-for="@Model.PlacarVisitante">
+                    <span class="text-danger" asp-validation-for="@Model.PlacarVisitante"></span>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4 d-inline">
+            <div class="form-group" style="justify-content: center; display: flex;">
+                <button type="submit"
+                        class="btn btn-success" style="width:50%">
+                    Atualizar
+                </button>
+            </div>
+        </div>
+    </div>
+
+</form>

@@ -1,0 +1,93 @@
+﻿
+@{ ViewData["Title"] = "Cadastrar Time"; }
+
+@model CadastroAcontecimentos
+
+<h3 style="margin:40px; text-align:center">Cadastrar Acontecimentos do Jogo</h3>
+
+<form asp-action="CadastrarAcontecimento" method="post">
+
+    <div class="panel panel-default" style="background-color: lightgreen; padding-top:40px; border: solid 2px black">
+        <div class="panel-body modal-dialog-scrollable" style="justify-content: center; ">
+    
+
+                <div class="col-md-4">
+
+                    @* Jogos *@
+                    <div class="form-group">
+                        <label class="control-label" for="Jogo">Jogos</label>
+
+                        <select class="form-control single-select" asp-for="@Model.Acontecimento.Jogo.Id">
+                            <option selected value="">[Selecione o jogo]</option>
+                            @foreach (var item in Model.ListaJogos)
+                            {
+                <option value="@item.Id">@item.TimeCasa.Nome x @item.TimeVisitante.Nome</option>}
+                        </select>
+                        <span class="text-danger" asp-validation-for="@Model.ListaJogos"></span>
+                    </div>
+
+                    @* Times *@
+                    <div class="form-group">
+                        <label class="control-label" for="Times">Times</label>
+                        <select class="form-control single-select" asp-for="@Model.Acontecimento.Time.Id">
+                            <option selected value="">[Selecione o Time]</option>
+                            @foreach (var item in Model.ListaTimes)
+                            {
+                <option value="@item.Id">@item.Nome</option>}
+                        </select>
+                        <span class="text-danger" asp-validation-for="@Model.ListaTimes"></span>
+                    </div>
+
+                    @* Jogadores *@
+                    <div class="form-group">
+                        <label class="control-label" for="Jogadores">Jogadores</label>
+                        <select class="form-control single-select" asp-for="@Model.Acontecimento.Jogador.Id">
+                            <option selected value="">[Selecione o Time]</option>
+                            @foreach (var item in Model.ListaJogadores)
+                            {
+                <option value="@item.Id">@item.Nome</option>}
+                        </select>
+                        <span class="text-danger" asp-validation-for="@Model.ListaJogadores"></span>
+                    </div>
+
+
+                </div>
+                <div class="col-md-4">
+                    @* Ação Ocorrida *@
+                    <div class="form-group">
+                        <label class="control-label" for="acao">Ação Ocorrida</label>
+                        <select class="form-control single-select" asp-for="@Model.Acontecimento.AcaoOcorrida">
+
+                            <option selected value="">[Selecione a ação]</option>
+                            <option value="Cartão Amarelo A">Cartão Amarelo</option>
+                            <option value="Cartão Vermelho">Cartão Vermelho</option>
+                            <option value="Fez Falta">Fez a Falta</option>
+                            <option value="Sofreu Falta">Sofreu a Falta</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="@Model.Acontecimento.AcaoOcorrida"></span>
+                    </div>
+
+                    @* Tempo do Ocorrido *@
+                    <div class="form-group">
+                        <label class="control-label" for="tempoDoOcorrido">Tempo da Ação no Jogo</label>
+                        <input type="text" class="form-control" id="tempoDoOcorrido" placeholder="min : seg" asp-for="@Model.Acontecimento.TempoDoOcorrido">
+                        <span class="text-danger" asp-validation-for="@Model.Acontecimento.TempoDoOcorrido"></span>
+                    </div>
+                </div>
+            </div>
+        @* Botões *@
+        <div class="col-md-4 d-inline" style="justify-content:center">
+            <div class="form-group"
+                 style=" display: flex; justify-content: space-around;">
+                <a class="btn btn-success" asp-action="ListaAcontecimento">
+                    Mostar Acontecimentos dos Jogos
+                </a>
+                <button type="submit"
+                        class="btn btn-success" style="margin-left: 30px;">
+                    Cadastrar
+                </button>
+            </div>
+        </div>
+
+        </div>
+</form>

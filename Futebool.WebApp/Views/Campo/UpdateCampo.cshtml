@@ -1,0 +1,53 @@
+﻿
+@{ ViewData["Title"] = "Update Campo"; }
+
+@model Campo
+<h3 style="margin:40px; text-align:center">Update de Campo</h3>
+<form asp-action="UpdateCampo" method="post">
+
+
+    <div class="panel panel-default" style="background-color: lightgreen; padding-top:40px; border: solid 2px black">
+        <div class="panel-body modal-dialog-scrollable" style="justify-content: center;">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="NomeGramado">Nome do Gramado</label>
+                    <input type="text" class="form-control" id="NomeGramado" placeholder="Nome do Gramado" asp-for="@Model.NomeGramado">
+                    <span class="text-danger" asp-validation-for="@Model.NomeGramado"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="Referencia">Referencia</label>
+                    <input type="text" class="form-control" id="Referencia" placeholder="Referencia" asp-for="@Model.Referencia">
+                    <span class="text-danger" asp-validation-for="@Model.Referencia"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="Endereco">Endereco</label>
+                    <input type="text" class="form-control" id="Endereco" placeholder="Endereco" asp-for="@Model.Endereco">
+                    <span class="text-danger" asp-validation-for="@Model.Endereco"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="Estado">Estado</label>
+                    <input type="text" class="form-control" id="Estado" placeholder="São Paulo - SP" asp-for="@Model.Estado">
+                    <span class="text-danger" asp-validation-for="@Model.Estado"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="CEP">CEP</label>
+                    <input type="text" class="form-control" id="CEP" placeholder="CEP" asp-for="@Model.CEP">
+                    <span class="text-danger" asp-validation-for="@Model.CEP"></span>
+                </div>
+            </div>
+
+        </div>
+        @* Botões *@
+        <div class="col-md-4 d-inline">
+            <div class="form-group" style="justify-content: center; display: flex;">
+                <button type="submit"
+                        class="btn btn-success "
+                        style="width:50%">
+                    Atualizar
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

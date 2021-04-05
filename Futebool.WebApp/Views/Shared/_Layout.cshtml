@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Futebool.WebApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/menu.css" />
+</head>
+<body style=" display: block;">
+    <header>
+        <nav >
+            <div class="topnav ">
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <a class="nav-link" asp-area="" asp-controller="Times" asp-action="ListaTimes">Times</a>
+                <a class="nav-link" asp-area="" asp-controller="Jogador" asp-action="ListaJogadores">Jogadores</a>
+                <a class="nav-link" asp-area="" asp-controller="Tecnico" asp-action="ListaTecnico">Técnicos</a>
+                <a class="nav-link" asp-area="" asp-controller="Campo" asp-action="ListaCampo">Campos</a>
+                <a class="nav-link" asp-area="" asp-controller="Jogo" asp-action="ListaJogo">Jogos</a>
+                <a class="nav-link" asp-area="" asp-controller="AcontecimentosDoJogo" asp-action="ListaAcontecimento">Acontecimentos</a>
+                <a class="nav-link" asp-area="" asp-controller="Jogador" asp-action="Cadastrar">Cadastrar Jogador</a>
+                <a class="nav-link" asp-area="" asp-controller="Campo" asp-action="CadastrarCampo">Cadastrar Campo</a>
+                <a class="nav-link" asp-area="" asp-controller="Tecnico" asp-action="CadastrarTecnico">Cadastrar Técnicos</a>
+                <a class="nav-link text" asp-area="" asp-controller="Jogo" asp-action="CadastrarJogo">Cadastrar Jogo</a>
+                <a class="nav-link text" asp-area="" asp-controller="AcontecimentosDoJogo" asp-action="CadastrarAcontecimento">Cadastrar Acontecimentos</a>
+                @*<a href="#contact">Contact</a>*@
+            </div>
+        </nav>
+    </header>
+   
+    <div class="container">
+        <main role="main" class="pb-3">
+
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Futebool.WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿@{ ViewData["Title"] = "Lista de Acontecimentos";}
+
+@model List<AcontecimentosDoJogo>;
+
+<h3 style="margin:40px; text-align:center">Lista de todos os Acontecimentos</h3>
+
+
+<div style="display: flex; flex-wrap:wrap">
+    @foreach (var item in Model)
+    {
+    <div style="       
+        background-color: lightgreen;
+        margin: 10px;
+        color: black;
+        border: solid 2px black;
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+        height: auto;
+        padding-left: 30px;
+        padding-top: 30px;">
+        <h4>ID(@item.Id) - Nome do Jogador:  @item.Jogador.Nome </h4>
+        <p>Jogo:  @item.Jogo.TimeCasa.Nome x @item.Jogo.TimeVisitante.Nome </p>
+        <p>Time do Jogador:  @item.Time.Nome </p>
+        <p>Tempo do Ocorrido:  @item.TempoDoOcorrido </p>
+        <p>Ação Ocorrida: @item.AcaoOcorrida</p>
+        <br />
+        <br />
+        <div class="form-group">
+            <a class="btn btn-success" asp-action="UpdateAcontecimento" asp-route-id="@item.Id">
+                Update Acontecimento
+            </a>
+            <a class="btn btn-success" asp-action="DeleteAcontecimento" asp-route-id="@item.Id">
+                Deletar Acontecimento
+            </a>
+        </div>
+    </div>
+    }
+</div>

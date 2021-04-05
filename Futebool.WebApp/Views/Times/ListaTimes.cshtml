@@ -1,0 +1,40 @@
+﻿@{ ViewData["Title"] = "Lista de Times";}
+
+@model List<Times>;
+
+<h3 style="margin:40px; text-align:center">Lista de todos os Times</h3>
+
+
+<div style="display: flex; flex-wrap:wrap">
+    @foreach (var item in Model)
+    {
+    <div style="       
+        background-color: lightgreen;
+        margin: 10px;
+        color: black;
+        border: solid 2px black;
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        height: auto;
+        padding-left: 30px;
+        padding-top: 30px;">
+        <p>ID(@item.Id) - Nome:  @item.Nome </p>
+        <p>Mascote:  @item.Mascote </p>
+        <p>Série:  @item.Serie </p>
+        <p>Técnico:  @item.Tecnico.Nome </p>
+        <p>Total de Gols: @item.TotalGols</p>
+        <p>Vitórias: @item.Vitorias</p>
+        <br />
+        <br />
+        <div class="form-group">
+            <a class="btn btn-success" asp-action="UpdateTime" asp-route-id="@item.Id">
+                Update Time
+            </a>
+            <a class="btn btn-success" asp-action="DeleteTime" asp-route-id="@item.Id">
+                Deletar Time
+            </a>
+        </div>
+    </div>
+    }
+</div>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "futebool", "futebool\futebool.csproj", "{30D6D541-A418-4C34-B52B-D88DB7074D3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futebool.WebApp", "Futebool.WebApp\Futebool.WebApp.csproj", "{AE511D21-5D0A-4F8E-BD37-2E15900A5CD9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30D6D541-A418-4C34-B52B-D88DB7074D3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30D6D541-A418-4C34-B52B-D88DB7074D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30D6D541-A418-4C34-B52B-D88DB7074D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30D6D541-A418-4C34-B52B-D88DB7074D3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE511D21-5D0A-4F8E-BD37-2E15900A5CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE511D21-5D0A-4F8E-BD37-2E15900A5CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE511D21-5D0A-4F8E-BD37-2E15900A5CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE511D21-5D0A-4F8E-BD37-2E15900A5CD9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {062E0C3C-7640-4128-85A8-17BB7342ED70}
+	EndGlobalSection
+EndGlobal

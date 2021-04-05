@@ -1,0 +1,108 @@
+﻿
+@{ ViewData["Title"] = "Cadastrar Jogador"; }
+
+@model CadastroJogador
+<h3 style="margin:40px; text-align:center">Cadastro de Jogador</h3>
+
+<form asp-action="Cadastrar" method="post">
+
+
+    <div class="panel panel-default" style="background-color: lightgreen; padding-top:40px; border: solid 2px black">
+        <div class="panel-body modal-dialog-scrollable" style="justify-content: center;">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="nome">Nome do Jogador</label>
+                    <input type="text" class="form-control" id="nomeJogador" placeholder="Nome do Jogador" asp-for="@Model.Jogador.Nome">
+                    <span class="text-danger" asp-validation-for="@Model.Jogador.Nome"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="numeroCamisa">N° da Camisa</label>
+                    <input type="number" class="form-control" id="numeroCamisa" placeholder="N° da Camisa" asp-for="@Model.Jogador.NumeroCamisa">
+                    <span class="text-danger" asp-validation-for="@Model.Jogador.NumeroCamisa"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="Status">Status</label>
+                    <select class="form-control single-select"  asp-for="@Model.Jogador.Status">
+
+                        <option selected value="">[Selecione o status]</option>
+                        <option value="Reserva">Reserva</option>
+                        <option value="Titular">Titular</option>
+                        <option value="Afastado">Afastado</option>
+                        <option value="Lesionado">Lesionado</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="@Model.Jogador.Status"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="Posicao">Posição</label>
+                    <select class="form-control single-select"  asp-for="@Model.Jogador.Posicao">
+
+                        <option selected value="">[Selecione a sua posição]</option>
+                        <option value="Goleiro">Goleiro</option>
+                        <option value="Lateral Direito">Lateral Direito</option>
+                        <option value="Lateral Esquerdo">Lateral Esquerdo</option>
+                        <option value="Zagueiro">Zagueiro</option>
+                        <option value="Volante">Volante</option>
+                        <option value="Meia">Meia</option>
+                        <option value="Atacante">Atacante</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="@Model.Jogador.Posicao"></span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="form-group">
+                    <label class="control-label" for="altura">Altura</label>
+                    <input type="text" class="form-control" id="bairro" placeholder="Bairro" asp-for="@Model.Jogador.Peso">
+                    <span class="text-danger" asp-validation-for="@Model.Jogador.Altura"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="peso">Peso</label>
+                    <input type="number" class="form-control" id="municipio" placeholder="Município" asp-for="@Model.Jogador.Peso">
+                    <span class="text-danger" asp-validation-for="@Model.Jogador.Peso"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="Time">Time</label>
+                    
+                    <select class="form-control single-select" asp-for="@Model.Jogador.Time.Id">
+                        <option selected value="">[Selecione o Time]</option>
+                        @foreach (var item in Model.ListaDeTimes)
+                        {
+                    <option value="@item.Id">@item.Nome</option>}
+
+                    </select>
+                        
+                    <span class="text-danger" asp-validation-for="@Model.ListaDeTimes"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="PeDeChute">Pé de Chute</label>
+                    <select class="form-control single-select"  asp-for="@Model.Jogador.PeDeChute">
+
+                        <option selected value="">[Selecione o pé de chute]</option>
+                        <option value="Esquerdo">Esquerdo</option>
+                        <option value="Direito">Direito</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="@Model.Jogador.PeDeChute"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 d-inline" style="justify-content:center">
+            <div class="form-group"
+                 style=" display: flex; justify-content: space-around;">
+                <a class="btn btn-success" asp-action="ListaJogadores">
+                    Mostar Jogadores
+                </a>
+                <button type="submit"
+                        class="btn btn-success" style="margin-left: 30px;">
+                    Cadastrar
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</form>

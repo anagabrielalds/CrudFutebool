@@ -1,0 +1,44 @@
+﻿
+@{ ViewData["Title"] = "Lista de Jogos";}
+
+@model List<Jogo>;
+
+<h3 style="margin:40px; text-align:center">Lista de todos os Jogos</h3>
+
+
+<div style="display: flex; flex-wrap:wrap">
+    @foreach (var item in Model)
+    {
+        <div style="        
+        background: lightgreen;
+        margin: 10px;
+        color: black;
+        border: solid 2px black;
+        display: flex;
+        flex-direction: column;
+        width: 46%;
+        height: auto;
+        padding-left: 30px;
+        padding-top: 30px;">
+
+            <h4 style="text-align:center">  @item.TimeCasa.Nome <br/> X <br/> @item.TimeVisitante.Nome </h4>
+            <p>Campo:  @item.Campo.NomeGramado </p>
+            <p>Data e Hora do Jogo:  @item.DataHoraJogo </p>
+            <p>Acrescimo: @item.Acrescimo</p>
+            <p>Placar Casa: @item.PlacarCasa</p>
+            <p>Placar Visitante: @item.PlacarVisitante</p>
+            <br />
+            <br/>
+
+            <div class="form-group">
+                <a class="btn btn-success" asp-action="UpdateJogo" asp-route-id="@item.Id">
+                    Update Jogo
+                </a>
+                <a class="btn btn-success" asp-action="DeleteJogo" asp-route-id="@item.Id">
+                    Deletar Jogo
+                </a>
+            </div>
+        </div>
+    }
+</div>
+

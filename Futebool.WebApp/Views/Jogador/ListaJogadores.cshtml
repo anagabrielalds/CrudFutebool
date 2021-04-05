@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{ ViewData["Title"] = "Lista de Jogadores";}
+
+@model List<Jogador>;
+
+
+<h3 style="margin:40px; text-align:center">Lista de todos os Jogadores</h3>
+
+
+<div style="display: flex; flex-wrap:wrap">
+    @foreach (var item in Model)
+    {
+        <div style="       
+        background: lightgreen;
+        margin: 10px;
+        color: black;
+        border: solid 2px black;
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        height: auto;
+        padding: 10px;">
+            <img src="~/jogadores/@(item.Id).jpg"  style="width: 100%; height: 33%; margin-bottom:5px"/>
+            <p>ID(@item.Id) - Nome:  @item.Nome </p>
+            <p>Número da Camisa:  @item.NumeroCamisa </p>
+            <p>Posição:  @item.Posicao </p>
+            <p>Status:  @item.Status </p>
+            <p>Time(@item.Time.Id): @item.Time.Nome</p>
+
+            <div class="form-group">
+                <a class="btn btn-success" asp-action="UpdateJogador" asp-route-id="@item.Id">
+                    Update Jogador
+                </a>
+                <a class="btn btn-success" asp-action="DeleteJogador" asp-route-id="@item.Id">
+                    Deletar Jogador
+                </a>
+            </div>
+
+        </div>
+    }
+</div>
+

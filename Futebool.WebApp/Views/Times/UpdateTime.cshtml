@@ -1,0 +1,78 @@
+﻿
+@{ ViewData["Title"] = "Update Times"; }
+
+@model Times
+<h3 style="margin:40px; text-align:center">Update do Time</h3>
+<form asp-action="UpdateTime" method="post">
+
+
+    <div class="panel panel-default" style="background-color: lightgreen; padding-top:40px; border: solid 2px black">
+        <div class="panel-body modal-dialog-scrollable" style="justify-content: center;">
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="nome">Nome do Time</label>
+                    <input type="text" class="form-control" id="nomeCliente" placeholder="Nome do Time" asp-for="@Model.Nome">
+                    <span class="text-danger" asp-validation-for="@Model.Nome"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="Mascote">Mascote</label>
+                    <input type="text" class="form-control" id="mascote" placeholder="Mascote" asp-for="@Model.Mascote">
+                    <span class="text-danger" asp-validation-for="@Model.Mascote"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="Serie">Série</label>
+                    <select class="form-control single-select" name="Serie" asp-for="@Model.Serie">
+
+                        <option selected value="">[Selecione o Serie]</option>
+                        <option value="Serie A">Serie A</option>
+                        <option value="Serie B">Serie B</option>
+                        <option value="Serie C">Serie C</option>
+                        <option value="Serie D">Serie D</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="@Model.Serie"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="Brasao">Brasão</label>
+                    <input type="text" class="form-control" id="Brasao" placeholder="Brasão" asp-for="@Model.Brasão">
+                    <span class="text-danger" asp-validation-for="@Model.Brasão"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="TotalGols">Total de Gols</label>
+                    <input type="number" class="form-control" id="TotalGols" placeholder="Total de Gols" asp-for="@Model.TotalGols">
+                    <span class="text-danger" asp-validation-for="@Model.TotalGols"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="Vitorias">Vitórias</label>
+                    <input type="number" class="form-control" id="Vitorias" placeholder="Vitorias" asp-for="@Model.Vitorias">
+                    <span class="text-danger" asp-validation-for="@Model.Vitorias"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="Derrotas">Derrotas</label>
+                    <input type="number" class="form-control" id="Derrotas" placeholder="Derrotas" asp-for="@Model.Derrotas">
+                    <span class="text-danger" asp-validation-for="@Model.Derrotas"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="tecnico">Técnico</label>
+                    <input type="number" class="form-control" id="tecnico" placeholder="Técnico" asp-for="@Model.Tecnico.Id">
+                    <span class="text-danger" asp-validation-for="@Model.Tecnico.Id"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="campo">Campo</label>
+                    <input type="number" class="form-control" id="campo" placeholder="Campo" asp-for="@Model.Campo.Id">
+                    <span class="text-danger" asp-validation-for="@Model.Campo.Id"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 d-inline">
+            <div class="form-group" style="justify-content: center; display: flex;">
+                <button type="submit"
+                        class="btn btn-success " style="width:50%">
+                    Atualizar
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

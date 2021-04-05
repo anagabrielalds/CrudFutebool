@@ -1,0 +1,111 @@
+﻿
+@{ ViewData["Title"] = "Cadastrar Jogo"; }
+
+@model CadastroJogo
+<h3 style="margin:40px; text-align:center">Cadastro de Jogo</h3>
+<form asp-action="CadastrarJogo" method="post">
+
+
+    <div class="panel panel-default" style="background-color: lightgreen; padding-top:40px; border: solid 2px black">
+        <div class="panel-body modal-dialog-scrollable" style="justify-content: center;">
+            <div class="col-md-4">
+
+                @*Time da Casa*@
+                <div class="form-group">
+                    <label class="control-label" for="TimeCasa">Time da Casa</label>
+
+                    <select class="form-control single-select" asp-for="@Model.Jogo.TimeCasa.Id">
+                        <option selected value="">[Selecione o Time]</option>
+                        @foreach (var item in Model.ListaTimes)
+                        {
+            <option value="@item.Id">@item.Nome</option>
+}
+
+                    </select>
+
+                    <span class="text-danger" asp-validation-for="@Model.Jogo.TimeCasa.Id"></span>
+                </div>
+
+                @*Time Visitante*@
+                <div class="form-group">
+                    <label class="control-label" for="Time">Time Visitante</label>
+
+                    <select class="form-control single-select" asp-for="@Model.Jogo.TimeVisitante.Id">
+                        <option selected value="">[Selecione o Time]</option>
+                        @foreach (var item in Model.ListaTimes)
+                        {
+            <option value="@item.Id">@item.Nome</option>
+}
+
+                    </select>
+
+                    <span class="text-danger" asp-validation-for="@Model.Jogo.TimeVisitante.Id"></span>
+                </div>
+
+                @* CAMPO *@
+                <div class="form-group">
+                    <label class="control-label" for="Campo">Campo</label>
+
+                    <select class="form-control single-select" asp-for="@Model.Jogo.Campo.Id">
+                        <option selected value="">[Selecione o Time]</option>
+                        @foreach (var item in Model.Campo)
+                        {
+            <option value="@item.Id">@item.NomeGramado</option>
+}
+
+                    </select>
+
+                    <span class="text-danger" asp-validation-for="@Model.Jogo.Campo.Id"></span>
+                </div>
+
+                @* DATE E HORA DO JOGO *@
+                <div class="form-group">
+                    <label class="control-label" for="DataHoraJogo">Data e Hora do Jogo</label>
+                    <input type="datetime" class="form-control" id="DataHoraJogo" placeholder="Data e Hora do Jogo" asp-for="@Model.Jogo.DataHoraJogo">
+                    <span class="text-danger" asp-validation-for="@Model.Jogo.DataHoraJogo"></span>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                @* Acrescímo *@
+                <div class="form-group">
+                    <label class="control-label" for="Acrescimo">Acrescímo</label>
+                    <input type="number" class="form-control" id="Acrescimo" placeholder="Acrescímo" asp-for="@Model.Jogo.Acrescimo">
+                    <span class="text-danger" asp-validation-for="@Model.Jogo.Acrescimo"></span>
+                </div>
+
+                @* Placar da Casa *@
+                <div class="form-group">
+                    <label class="control-label" for="PlacarCasa">Placar da Casa</label>
+                    <input type="number" class="form-control" id="PlacarCasa" placeholder="Placar da Casa" asp-for="@Model.Jogo.PlacarCasa">
+                    <span class="text-danger" asp-validation-for="@Model.Jogo.PlacarCasa"></span>
+                </div>
+
+                @* Placar do Visitante *@
+                <div class="form-group">
+                    <label class="control-label" for="PlacarVisitante">Placar do Visitante</label>
+                    <input type="number" class="form-control" id="PlacarVisitante" placeholder="Placar do Visitante" asp-for="@Model.Jogo.PlacarVisitante">
+                    <span class="text-danger" asp-validation-for="@Model.Jogo.PlacarVisitante"></span>
+                </div>
+
+            </div>
+        </div>
+
+        @* Botões *@
+        <div class="col-md-4 d-inline" style="justify-content:center">
+            <div class="form-group"
+                 style=" display: flex; justify-content: space-around;">
+                <a class="btn btn-success" asp-action="ListaJogo">
+                    Mostar Jogos
+                </a>
+                <button type="submit"
+                        class="btn btn-success" style="margin-left: 30px;">
+                    Cadastrar
+                </button>
+            </div>
+
+        </div>
+    </div>
+</form>

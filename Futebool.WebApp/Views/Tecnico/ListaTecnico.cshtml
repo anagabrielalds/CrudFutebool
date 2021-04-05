@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{ ViewData["Title"] = "Lista de Técnicos";}
+
+@model List<Tecnico>;
+
+<h3 style="margin:40px; text-align:center">Lista de todos os Técnicos</h3>
+
+
+<div style="display: flex; flex-wrap:wrap">
+    @foreach (var item in Model)
+    {
+        <div style="        
+        background: lightgreen;
+        margin: 10px;
+        color: black;
+        border: solid 2px black;
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+        height: auto;
+        padding-left: 30px;
+        padding-top: 30px;">
+            <p>Nome:  @item.Nome </p>
+            <p>Descrição:  @item.Descricao </p>
+            <p>Nacionalidade:  @item.Nacionalidade </p>
+            <p>Altura:  @item.Altura </p>
+            <p>Peso: @item.Peso</p>
+            <br />
+            <br />
+
+            <div class="form-group">
+                <a class="btn btn-success" asp-action="UpdateTecnico" asp-route-id="@item.Id">
+                    Update Técnico
+                </a>
+                <a class="btn btn-success" asp-action="DeleteTecnico" asp-route-id="@item.Id">
+                    Deletar Técnico
+                </a>
+            </div>
+        </div>
+    }
+</div>
